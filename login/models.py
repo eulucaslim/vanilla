@@ -1,11 +1,11 @@
 from django.db import models
 
-class Register(models.Model):
-    full_name = models.CharField(max_length=100)
-    email = models.EmailField()
-    username = models.CharField(max_length=50, unique=True)
-    password = models.CharField(max_length=30)
+class User(models.Model):
+    nickname = models.CharField(primary_key=True,max_length=60, default='')
+    fullname =  models.CharField(max_length=100, default='')
+    password = models.CharField(max_length=20, default='')
+    email = models.EmailField(default='')
+    age = models.IntegerField(default=0)
 
-class Login(models.Model):
-    username = models.CharField(max_length=50, unique=True)
-    password = models.CharField(max_length=30)
+    def __str__(self):
+        return f"User: {self.nickname} | Email: {self.email}"   

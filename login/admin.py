@@ -1,10 +1,6 @@
 from django.contrib import admin
-from .models import Login, Register
+from .models import User
 
-@admin.register(Register)
-class RegisterAdmin(admin.ModelAdmin):
-    list_display = ('full_name','email','username', 'password')
-
-@admin.register(Login)
-class LoginAdmin(admin.ModelAdmin):
-    list_display = ('username', 'password')
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('nickname','fullname', 'password', 'email', 'age')
